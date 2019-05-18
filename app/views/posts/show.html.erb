@@ -1,0 +1,12 @@
+<%- if notice %>
+  <div id="notice" class="alert alert-primary"><%= notice %></div>
+<%- end %>
+
+<h1><%= @post.title %></h1>
+
+<p>
+  <%= @post.body %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post), class: "btn btn-primary" %>
+<%= link_to 'Back', posts_path, class: "btn btn-link" %>

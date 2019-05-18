@@ -1,0 +1,33 @@
+<%- if notice %>
+  <div id="notice" class="alert alert-primary"><%= notice %></div>
+<%- end %>
+
+<h1>Posts</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th width="30%"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.body %></td>
+        <td>
+          <%= link_to 'Show', post, class: "btn btn-sm btn-secondary" %>
+          <%= link_to 'Edit', edit_post_path(post), class: "btn btn-sm btn-secondary" %>
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-secondary" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path, class: "btn btn-primary" %>
