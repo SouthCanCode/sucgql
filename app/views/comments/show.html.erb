@@ -1,0 +1,15 @@
+<%- if notice %>
+  <div id="notice" class="alert alert-primary"><%= notice %></div>
+<%- end %>
+
+<dl>
+  <dt>Post</dt>
+  <dd><%= @comment.post %></dd>
+  <dt>Comment</dt>
+  <dd><%= @comment.body %></dd>
+  <dt>Author</dt>
+  <dd><%= @comment.author %></dd>
+</dl>
+
+<%= link_to 'Edit', edit_comment_path(@comment), class: "btn btn-primary" %>
+<%= link_to 'Back', comments_path, class: "btn btn-link" %>

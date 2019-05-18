@@ -1,0 +1,35 @@
+<%- if notice %>
+  <div id="notice" class="alert alert-primary"><%= notice %></div>
+<%- end %>
+
+<h1>Comments</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Post</th>
+      <th>Body</th>
+      <th>Author</th>
+      <th width="30%"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.post.title %></td>
+        <td><%= comment.body %></td>
+        <td><%= comment.author %></td>
+        <td>
+          <%= link_to 'Show', comment, class: "btn btn-sm btn-secondary" %>
+          <%= link_to 'Edit', edit_comment_path(comment), class: "btn btn-sm btn-secondary" %>
+          <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-secondary" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comment', new_comment_path, class: "btn btn-primary" %>
