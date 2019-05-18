@@ -1,6 +1,25 @@
-
+<h2>Links</h2>
 <%= link_to "Open GraphiQL", "/graphiql" %>
 <br>
 <%= link_to "Posts", posts_path %>
 <br>
 <%= link_to "Comments", comments_path %>
+<br>
+<br>
+<br>
+
+<h2>Bonus</h2>
+<p>Use <a href="https://github.com/f/graphql.js/">graphql.js</a> JS client</p>
+
+<ol>
+  <li>Open <strong>Javascript Console</strong> in Browser</li>
+  <li>Copy-paste the code below into the console</li>
+</ol>
+<textarea cols="80" rows="7">
+var gql = graphql("/graphql")
+var listPosts = gql(`{ posts { id title body comments { id body author }}}`)
+var data = await listPosts()
+
+console.log(data)
+
+</textarea>
